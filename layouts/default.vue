@@ -9,6 +9,7 @@
         </div>
         <AgentDrawer :right-drawer="rightDrawer" :clipped="clipped" :second-mini-variant="secondMiniVariant" @open-close-agent="openAndCloseAgentDrawer" :items-drawer="itemsDrawer"/>
       </div>
+      <Nuxt/>
     </v-main>
 
   </v-app>
