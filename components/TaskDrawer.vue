@@ -1,4 +1,5 @@
 <template>
+<!--  <div >-->
   <div v-if="itemsDrawer" class="tw-flex">
     <v-navigation-drawer
       v-model="itemsDrawer"
@@ -61,10 +62,11 @@
       </v-tabs-items>
 
     </v-navigation-drawer>
-    <div class="arrow" @click="$emit('close-task')">
+    <div class="arrow tw-cursor-pointer" @click="$emit('close-task')">
       <v-icon color="white">mdi-chevron-left</v-icon>
     </div>
   </div>
+<!--  </div>-->
 
 </template>
 
@@ -163,5 +165,9 @@ name: "TaskDrawer",
 
   color: #828282;
 
+}
+.secondDrawer {
+  background: #FEFEFE !important;
+  border-radius: 4px !important;
 }
 </style>

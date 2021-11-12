@@ -19,7 +19,7 @@
       fab
       x-small
       class="toggle tw-ml-6"
-      @click.prevent="$emit('open-menu')"
+      @click="$emit('open-menu')"
       :ripple="false"
     >
       <v-icon color="#0F808C">mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
