@@ -40,7 +40,6 @@ export default {
     },
     openAndCloseTaskDrawer(){
       this.itemsDrawer = !this.itemsDrawer;
-      // this.miniVariant = true
     },
     openAndCloseAgentDrawer(){
       this.rightDrawer = !this.rightDrawer;
