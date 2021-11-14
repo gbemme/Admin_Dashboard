@@ -1,13 +1,12 @@
 <template>
 <!--  <div >-->
-  <div v-if="itemsDrawer" class="tw-flex">
+  <div  class="tw-flex">
     <v-navigation-drawer
       v-model="itemsDrawer"
       :clipped="clipped"
       :mini-variant="secondMiniVariant"
       class="secondDrawer"
       height="98vh"
-      permanent
       :style="[$vuetify.breakpoint.mobile?{width:'230px'}:{width:'390px'}]"
 
     >
@@ -62,7 +61,7 @@
       </v-tabs-items>
 
     </v-navigation-drawer>
-    <div class="arrow tw-cursor-pointer" @click="$emit('close-task')">
+    <div v-if="itemsDrawer" class="arrow tw-cursor-pointer" @click="$emit('close-task')">
       <v-icon color="white">mdi-chevron-left</v-icon>
     </div>
   </div>

@@ -13,7 +13,8 @@
         class="secondDrawer"
         height="98vh"
         permanent
-        :right="right"
+        :right="true"
+        stateless
         :style="[$vuetify.breakpoint.mobile?{width:'230px'}:{width:'390px'}]"
 
 

@@ -1,13 +1,12 @@
 <template>
 <div>
   <v-navigation-drawer
-    v-if="drawer"
     v-model="drawer"
     :clipped="clipped"
     :mini-variant="miniVariant"
     class="drawer white--text"
     height="98vh"
-    permanent
+    stateless
   >
     <div :style="[miniVariant?{display:'none'}:{display:'block'}]" class="company-details">
       <h4 class="font-weight-bold">Cheta And Daughters<br> Limited</h4>
