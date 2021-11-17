@@ -26,7 +26,7 @@
     </v-btn>
     <v-spacer/>
     <div class="tw-pt-2 input-style md:tw-w-850">
-      <div class="tw-flex">
+      <div class="tw-flex tw-items-center">
         <div class="md:tw-flex tw-hidden tw-items-center">
           <h4 class="tw-mr-4">All</h4>
           <v-icon color="#999999" class="tw-mr-1">mdi-chevron-down</v-icon>
