@@ -91,7 +91,7 @@ export default {
 
 }
 .scroll {
-  max-height: 680px;
+  max-height: 690px;
   overflow-y: auto;
   overflow-x: hidden;
 

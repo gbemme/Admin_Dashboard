@@ -115,6 +115,21 @@ name: "AgentDrawer",
           address: 'Akure',
           phone:'08069786754'
         },
+        {
+          name: 'Abiodun Olawale Solomon',
+          address: 'Akure',
+          phone:'08069786754'
+        },
+        {
+          name: 'Abiodun Olawale Solomon',
+          address: 'Akure',
+          phone:'08069786754'
+        },
+        {
+          name: 'Abiodun Olawale Solomon',
+          address: 'Akure',
+          phone:'08069786754'
+        },
 
 
       ],
