@@ -4,7 +4,7 @@
     color="white"
     elevation="1"
     fixed
-    class="align-center tw-px-8"
+    class="align-center md:tw-px-8"
     height="72"
   >
     <div class="md:tw-w-32 tw-w-24">
@@ -22,11 +22,21 @@
       @click="$emit('open-menu')"
       :ripple="false"
     >
-      <v-icon color="#0F808C">mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
+      <v-icon color="#0F808C">mdi-{{ `chevron-${drawer ? 'left' : 'right'}` }}</v-icon>
     </v-btn>
     <v-spacer/>
-    <div class="tw-pt-2 md:tw-w-850">
-      <v-text-field flat hide-details label="Search for anything here" solo></v-text-field>
+    <div class="tw-pt-2 input-style md:tw-w-850">
+      <div class="tw-flex">
+        <div class="md:tw-flex tw-hidden tw-items-center">
+          <h4 class="tw-mr-4">All</h4>
+          <v-icon color="#999999" class="tw-mr-1">mdi-chevron-down</v-icon>
+          <v-divider vertical></v-divider>
+
+        </div>
+        <span class="md:tw-ml-5"> Search for anything here</span>
+
+
+      </div>
 
     </div>
     <v-spacer/>
@@ -54,11 +64,37 @@
 export default {
 name: "Header",
   props:{
-    miniVariant:[Boolean]
+    miniVariant:[Boolean],
+    drawer:[Boolean]
   }
 }
 </script>
 
 <style scoped>
+.input-style{
+  background: #F1F1F1;
+  border: 2px solid #FFFFFF;
+  box-sizing: border-box;
+  padding: 15px;
+
+}
+h4{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+
+
+  color: #999999 !important;
+}
+span{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+
+
+  color: #999999 !important;
+}
 
 </style>

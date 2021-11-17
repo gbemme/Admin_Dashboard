@@ -1,14 +1,8 @@
 <template>
   <v-app>
-    <Header :miniVariant="miniVariant" @open-menu="openAndCloseMenuDrawer"/>
-    <v-main v-bind:style="{ backgroundImage: 'url(' + require('@/static/distance.png') + ')'}"  style="background-size: cover !important;height:100vh">
-      <div class="tw-flex tw-justify-between">
-        <div class="tw-flex">
-          <MenuDrawer @open-close-task="openAndCloseTaskDrawer" :drawer="drawer" :mini-variant="miniVariant" :clipped="clipped"/>
-          <TaskDrawer :clipped="clipped" :second-mini-variant="secondMiniVariant" @close-task="itemsDrawer=false" :items-drawer="itemsDrawer"/>
-        </div>
-        <AgentDrawer :right-drawer="rightDrawer" :clipped="clipped" :second-mini-variant="secondMiniVariant" @open-close-agent="openAndCloseAgentDrawer" :items-drawer="itemsDrawer"/>
-      </div>
+    <Header :drawer="first"  @open-menu="openAndCloseMenuDrawer"/>
+    <v-main v-bind:style="{ backgroundImage: 'url(' + require('@/static/distance.png') + ')'}"  style="background-size: cover !important;height:95vh;overflow: hidden">
+      <DrawerWrapper :first="first" :second="second" :third="third" @open-close-task="openAndCloseTaskDrawer"  @open-close-agent="openAndCloseAgentDrawer" />
       <Nuxt/>
     </v-main>
 
@@ -17,32 +11,25 @@
 
 <script>
 import Header from "~/components/Header";
-import MenuDrawer from "~/components/MenuDrawer";
-import TaskDrawer from "~/components/TaskDrawer";
-import AgentDrawer from "~/components/AgentDrawer";
+import DrawerWrapper from "@/components/DrawerWrapper";
 export default {
-  components: {AgentDrawer, TaskDrawer, MenuDrawer, Header},
+  components: {DrawerWrapper,Header},
   data() {
     return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      miniVariant: false,
-      secondMiniVariant: false,
-      right: true,
-      rightDrawer: false,
-      itemsDrawer: false,
+      first: false,
+      third: false,
+      second: false,
     }
   },
   methods: {
     openAndCloseMenuDrawer(){
-      this.drawer = !this.drawer;
+      this.first = !this.first;
     },
     openAndCloseTaskDrawer(){
-      this.itemsDrawer = !this.itemsDrawer;
+      this.second = !this.second;
     },
     openAndCloseAgentDrawer(){
-      this.rightDrawer = !this.rightDrawer;
+      this.third = !this.third;
     },
   }
 }
@@ -71,9 +58,10 @@ export default {
 }
 
 .task-agent-heading {
-  background-color: #0F808C !important;
+  background-color: #46B2C8 !important;
   color: white;
   padding: 10px;
+  font-weight: bold;
 
 }
 
@@ -94,4 +82,31 @@ export default {
   background: #FFFFFF !important;
   box-shadow: 0px 2px 4px rgba(2, 58, 89, 0.16) !important;
 }
+.agent-card .theme--light.v-sheet{
+  background-color: #0F808C !important;
+
+}
+.menu-list .theme--light.v-sheet{
+  background-color: #0F808C !important;
+
+}
+.scroll {
+  max-height: 680px;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+}
+
+.scroll::-webkit-scrollbar {
+  background: transparent !important;
+  width: 5px;
+  height: 8px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background: #c4c4c4 !important;
+  max-height: 20px !important;
+  border-radius: 6px;
+}
+
 </style>

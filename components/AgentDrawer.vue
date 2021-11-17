@@ -1,70 +1,57 @@
 <template>
-  <div class="tw-flex">
-    <div class="tw-mt-">
-      <div class="arrow tw-cursor-pointer" :class="{'arrow-out': rightDrawer}"  @click="$emit('open-close-agent')">
-        <v-icon color="white">mdi-chevron-left</v-icon>
-      </div>
-    </div>
+  <div>
+    <div>
+              <div class="task-agent-heading">
+                <div class="tw-flex tw-justify-between">
+                  <h3>Agents</h3>
+                  <v-icon color="white">mdi-magnify</v-icon>
 
-    <div :class="[{'out': rightDrawer}, 'drawer-agent']">
-      <v-navigation-drawer
-        v-model="rightDrawer"
-        :mini-variant="secondMiniVariant"
-        class="secondDrawer"
-        height="98vh"
-        permanent
-        :right="true"
-        stateless
-        :style="[$vuetify.breakpoint.mobile?{width:'230px'}:{width:'390px'}]"
-
-
-      >
-        <div class="task-agent-heading">
-          <h3>Agents</h3>
-        </div>
-
-
-        <v-tabs
-          v-model="tab2"
-        >
-          <v-tabs-slider color="#023A59"></v-tabs-slider>
-
-          <v-tab
-            v-for="item in items"
-            :key="item"
-            class="tab"
-          >
-            {{ item }}
-          </v-tab>
-        </v-tabs>
-
-        <v-tabs-items v-model="tab2">
-          <v-tab-item
-            v-for="item in items"
-            :key="item"
-          >
-            <v-card class="tw-mb-3 agent-card"  v-for="(item, i) in drawerItems"
-                    :key="i"
-                    flat>
-              <div class="tw-flex tw-p-6  ">
-                <div class="tw-mr-6">
-                  <img :src="require('@/static/solomon.svg')" alt="image">
                 </div>
-                <div>
-                  <h3>{{item.name}}</h3>
-                  <h4>{{item.phone}}</h4>
-                  <h4 class="tw-pt-3">{{item.address}}</h4>
-                </div>
-
               </div>
-              <v-divider v-if="i!== drawerItems.length-1"/>
-            </v-card>
-          </v-tab-item>
-        </v-tabs-items>
 
 
-      </v-navigation-drawer>
+              <v-tabs
+                v-model="tab2"
+              >
+                <v-tabs-slider color="#023A59"></v-tabs-slider>
+
+                <v-tab
+                  v-for="item in items"
+                  :key="item"
+                  class="tab"
+                >
+                  {{ item }}
+                </v-tab>
+              </v-tabs>
+              <div class="scroll">
+              <v-tabs-items  v-model="tab2">
+                <v-tab-item
+                  transition="fade-transition"
+                  v-for="item in items"
+                  :key="item"
+                >
+                  <v-card class="tw-mb-2 agent-card"  v-for="(item, i) in drawerItems"
+                          :key="i"
+                          flat>
+                    <div class="tw-flex tw-p-4  ">
+                      <div class="tw-mr-6">
+                        <img :src="require('@/static/solomon.svg')" alt="image">
+                      </div>
+                      <div>
+                        <h3>{{item.name}}</h3>
+                        <h4>{{item.phone}}</h4>
+                        <h4 class="tw-pt-3">{{item.address}}</h4>
+                      </div>
+
+                    </div>
+                    <v-divider v-if="i!== drawerItems.length-1"/>
+                  </v-card>
+                </v-tab-item>
+              </v-tabs-items>
+              </div>
     </div>
+
+
 
   </div>
 
@@ -78,7 +65,7 @@ name: "AgentDrawer",
   props:{
     rightDrawer:[Boolean],
     secondMiniVariant:[Boolean],
-      right:[Boolean]
+      third:[Boolean]
   },
   data () {
     return{
@@ -103,12 +90,43 @@ name: "AgentDrawer",
           address: 'Akure',
           phone:'08069786754'
         },
+        {
+          name: 'Abiodun Olawale Solomon',
+          address: 'Akure',
+          phone:'08069786754'
+        },
+        {
+          name: 'Abiodun Olawale Solomon',
+          address: 'Akure',
+          phone:'08069786754'
+        },
+        {
+          name: 'Abiodun Olawale Solomon',
+          address: 'Akure',
+          phone:'08069786754'
+        },
+        {
+          name: 'Abiodun Olawale Solomon',
+          address: 'Akure',
+          phone:'08069786754'
+        },
+        {
+          name: 'Abiodun Olawale Solomon',
+          address: 'Akure',
+          phone:'08069786754'
+        },
+
 
       ],
       tab2: null,
       items: [
         'All', 'Online', 'Offline',
       ],
+    }
+  },
+  methods: {
+    openCloseAgent(){
+      this.$emit('open-close-agent')
     }
   }
 }
@@ -121,7 +139,7 @@ name: "AgentDrawer",
   font-size: 12px;
   line-height: 16px;
   /* identical to box height */
-  padding-bottom: 15px;
+  padding-bottom: 10px;
   text-transform: capitalize;
   color: #000000;
 

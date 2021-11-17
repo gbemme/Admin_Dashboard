@@ -1,71 +1,57 @@
 <template>
-<!--  <div >-->
-  <div  class="tw-flex">
-    <v-navigation-drawer
-      v-model="itemsDrawer"
-      :clipped="clipped"
-      :mini-variant="secondMiniVariant"
-      class="secondDrawer"
-      height="98vh"
-      :style="[$vuetify.breakpoint.mobile?{width:'230px'}:{width:'390px'}]"
+  <div >
+          <div class="task-agent-heading">
+            <h3>Task</h3>
+          </div>
+          <v-tabs
+            v-model="tab"
+          >
+            <v-tabs-slider color="#023A59"></v-tabs-slider>
 
-    >
-      <div class="task-agent-heading">
-        <h3>Task</h3>
-      </div>
-      <v-tabs
-        v-model="tab"
-      >
-        <v-tabs-slider color="#023A59"></v-tabs-slider>
+            <v-tab
+              v-for="item in items"
+              :key="item"
+              class="tab"
+            >
+              {{ item }}
+            </v-tab>
+          </v-tabs>
+          <div class="scroll">
+          <v-tabs-items v-model="tab">
+            <v-tab-item
+              v-for="item in items"
+              :key="item"
+            >
+              <v-card class="tw-mb-3 task-card"  v-for="(item, i) in drawerItems"
+                       :key="i"
+                       flat>
+                <div class="tw-flex tw-p-4 tw-items-center ">
+                  <div class="tw-mr-6">
+                    <AssignLogo/>
+                    <span class="assign">Assign <br>Agent</span>
+                  </div>
+                  <div>
+                    <h3>{{item.name}}</h3>
+                    <div class="tw-flex tw-justify-between tw-items-center">
+                      <h4>{{item.address}}</h4>
+                      <v-icon class="tw-mr-8" color="">mdi-chevron-right</v-icon>
 
-        <v-tab
-          v-for="item in items"
-          :key="item"
-          class="tab"
-        >
-          {{ item }}
-        </v-tab>
-      </v-tabs>
-
-      <v-tabs-items v-model="tab">
-        <v-tab-item
-          v-for="item in items"
-          :key="item"
-        >
-          <v-card class="tw-mb-3 task-card"  v-for="(item, i) in drawerItems"
-                   :key="i"
-                   flat>
-            <div class="tw-flex tw-p-4 tw-items-center ">
-              <div class="tw-mr-6">
-                <AssignLogo/>
-                <span class="assign">Assign <br>Agent</span>
-              </div>
-              <div>
-                <h3>{{item.name}}</h3>
-                <div class="tw-flex tw-justify-between tw-items-center">
-                  <h4>{{item.address}}</h4>
-                  <v-icon class="tw-mr-8" color="">mdi-chevron-right</v-icon>
+                    </div>
+                    <div class="tw-flex">
+                      <Building/>
+                      <h4>Sterling Bank PLC</h4>
+                    </div>
+                    <h5>{{item.days}}</h5>
+                  </div>
 
                 </div>
-                <div class="tw-flex">
-                  <Building/>
-                  <h4>Sterling Bank PLC</h4>
-                </div>
-                <h5>{{item.days}}</h5>
-              </div>
+                <v-divider v-if="i!== drawerItems.length-1"/>
+              </v-card>
+            </v-tab-item>
+          </v-tabs-items>
+          </div>
 
-            </div>
-            <v-divider v-if="i!== drawerItems.length-1"/>
-          </v-card>
-        </v-tab-item>
-      </v-tabs-items>
-
-    </v-navigation-drawer>
-    <div v-if="itemsDrawer" class="arrow tw-cursor-pointer" @click="$emit('close-task')">
-      <v-icon color="white">mdi-chevron-left</v-icon>
-    </div>
   </div>
-<!--  </div>-->
 
 </template>
 
@@ -83,6 +69,46 @@ name: "TaskDrawer",
   data () {
     return{
       drawerItems: [
+        {
+          name: 'Abiodun Olawale Solomon',
+          address: '12b  Emmanuel Hign street, Sur...',
+          days:'A day ago'
+        },
+        {
+          name: 'Abiodun Olawale Solomon',
+          address: '12b  Emmanuel Hign street, Sur...',
+          days:'2 day ago'
+        },
+        {
+          name: 'Abiodun Olawale Solomon',
+          address: '12b  Emmanuel Hign street, Sur...',
+          days:'2 day ago'
+        },
+        {
+          name: 'Abiodun Olawale Solomon',
+          address: '12b  Emmanuel Hign street, Sur...',
+          days:'2 day ago'
+        },
+        {
+          name: 'Abiodun Olawale Solomon',
+          address: '12b  Emmanuel Hign street, Sur...',
+          days:'A day ago'
+        },
+        {
+          name: 'Abiodun Olawale Solomon',
+          address: '12b  Emmanuel Hign street, Sur...',
+          days:'2 day ago'
+        },
+        {
+          name: 'Abiodun Olawale Solomon',
+          address: '12b  Emmanuel Hign street, Sur...',
+          days:'2 day ago'
+        },
+        {
+          name: 'Abiodun Olawale Solomon',
+          address: '12b  Emmanuel Hign street, Sur...',
+          days:'2 day ago'
+        },
         {
           name: 'Abiodun Olawale Solomon',
           address: '12b  Emmanuel Hign street, Sur...',
